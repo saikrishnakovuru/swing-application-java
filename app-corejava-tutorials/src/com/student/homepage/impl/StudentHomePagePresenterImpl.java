@@ -1,5 +1,8 @@
 package com.student.homepage.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.student.homepage.StudentHomePagePresenter;
 import com.student.homepage.SwingStudentHomePageView;
 
@@ -7,10 +10,13 @@ public class StudentHomePagePresenterImpl implements StudentHomePagePresenter {
 
 	private SwingStudentHomePageView view;
 	private Student student;
+	private List<Student> studentList;
+	private String data;
 
-	public StudentHomePagePresenterImpl(SwingStudentHomePageView view, Student student) {
+	public StudentHomePagePresenterImpl(SwingStudentHomePageView view) {
 		this.view = view;
-//		this.student = student;
+		studentList = new ArrayList<Student>();
+		data = new String();
 		setHomePageTitle();
 	}
 
@@ -33,8 +39,10 @@ public class StudentHomePagePresenterImpl implements StudentHomePagePresenter {
 
 	@Override
 	public void updateStudentDetailsOnView() {
-		view.getTextArea().setText("My name is " + student.getName() + ", " + student.getGender() + ", I chose "
-				+ student.getDepartment() + "  department and to describe myself  " + student.getDescription());
+		studentList.add(student);
+//		view.getTextArea().setText("");
+		view.getTextArea().setText(details());
+
 	}
 
 	@Override
@@ -42,4 +50,13 @@ public class StudentHomePagePresenterImpl implements StudentHomePagePresenter {
 		this.student = student;
 	}
 
+	private String details() {
+
+//		for (Student stu : studentList) {
+//			view.getTextArea().setText("");
+		return data += "My name is " + student.getName() + ", " + student.getGender() + ", I chose "
+				+ student.getDepartment() + "  department and to describe myself  " + student.getDescription() + "\n";
+//		}
+//		return data;
+	}
 }

@@ -17,7 +17,7 @@ public class DefaultStudentHomePageFactoryImpl implements StudentHomePageFactory
 		StudentAdminViewFactory adminViewFacory = new StudentAdminViewFactoryImpl();
 		SwingStudentHomePageView view = new SwingStudentHomePageViewImpl();
 		StudentHomePageModel model = new StudentHomePageModelImpl();
-		StudentHomePagePresenter presenter = new StudentHomePagePresenterImpl(view,null);
+		StudentHomePagePresenter presenter = new StudentHomePagePresenterImpl(view);
 		new StudentHomePageGlue(view, studentViewFactory, presenter, adminViewFacory,student);
 	}
 }
