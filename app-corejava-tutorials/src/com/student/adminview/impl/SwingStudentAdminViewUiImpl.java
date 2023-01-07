@@ -37,7 +37,7 @@ public class SwingStudentAdminViewUiImpl extends SwingStudentViewImpl implements
 //	}
 
 	@Override
-	public JButton getSaveAndCloseButtons() {
+	public JButton getSaveAndCloseButton() {
 		return saveAndCloseButton;
 	}
 
