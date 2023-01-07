@@ -18,7 +18,7 @@ public class StudentAdminViewGlue {
 	}
 
 	private void actions() {
-		adminView.getSaveAndCloseButton().addActionListener(new ActionListener() {
+		adminView.getSaveAndCloseButtons().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				adminView.getFrame().dispose();
 				adminPresenter.enablingAdminViewButtonInHomePageView();
