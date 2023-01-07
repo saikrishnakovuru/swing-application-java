@@ -112,6 +112,10 @@ public class SwingStudentViewImpl implements StudentViewUi {
 		return builder.getPanel();
 	}
 
+	public void setMandatory(boolean val) {
+
+	}
+
 	@Override
 	public JButton getSaveAndCloseButton() {
 		return saveAndCloseButton;
@@ -150,5 +154,9 @@ public class SwingStudentViewImpl implements StudentViewUi {
 	@Override
 	public JRadioButton getFemaleRadioButton() {
 		return female;
+	}
+
+	public void man() {
+
 	}
 }

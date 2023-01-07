@@ -1,8 +1,10 @@
 package com.student.studentview.impl;
 
 import java.awt.Color;
+import java.awt.Component;
 
 import javax.swing.border.LineBorder;
+import javax.swing.text.JTextComponent;
 
 import org.jdesktop.swingx.prompt.PromptSupport;
 
@@ -27,7 +29,7 @@ public class StudentViewPresenterImpl implements StudentViewPresenter {
 		setFramesTitle();
 		setHintTextsToFields();
 		setToolTipsToFields();
-		setInvalidCOlorsToTextFieldsWichAreMandatory();
+		addMandatoryFields(view.getStudentNameField(), view.getDescriptionArea());
 	}
 
 	private void setHintTextsToFields() {
@@ -40,11 +42,11 @@ public class StudentViewPresenterImpl implements StudentViewPresenter {
 	}
 
 	private void setToolTipsToFields() {
-		view.getStudentNameField().setToolTipText("Enter your name");
+//		view.getStudentNameField().setToolTipText("Enter your name");
 
 		view.getSaveAndCloseButton().setToolTipText("Save and close");
 
-		view.getDescriptionArea().setToolTipText("Describe Yourself");
+//		view.getDescriptionArea().setToolTipText("Describe Yourself");
 		view.getDescriptionArea().setBorder(new LineBorder(Color.GRAY));
 	}
 
@@ -92,6 +94,16 @@ public class StudentViewPresenterImpl implements StudentViewPresenter {
 
 	private void setButtonStates(boolean isViewValid) {
 		view.getSaveAndCloseButton().setEnabled(isViewValid);
+	}
+
+	private void addMandatoryFields(Component... components) {
+//		JTextComponent c = null;
+		for (Component com : components) {
+			JTextComponent c = (JTextComponent) com;
+			c.setBackground(new Color(255, 255, 224));
+			setButtonStates(canSave());
+		}
+
 	}
 
 }
