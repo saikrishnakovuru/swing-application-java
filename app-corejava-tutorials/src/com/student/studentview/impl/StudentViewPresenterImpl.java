@@ -44,7 +44,7 @@ public class StudentViewPresenterImpl implements StudentViewPresenter {
 
 		view.getSaveAndCloseButton().setToolTipText("Save and close");
 
-		view.getDescriptionArea().setToolTipText(null);
+		view.getDescriptionArea().setToolTipText("Describe Yourself");
 		view.getDescriptionArea().setBorder(new LineBorder(Color.GRAY));
 	}
 
@@ -75,10 +75,6 @@ public class StudentViewPresenterImpl implements StudentViewPresenter {
 		setButtonStates(canSave());
 	}
 
-	private void setButtonStates(boolean isViewValid) {
-		view.getSaveAndCloseButton().setEnabled(isViewValid);
-	}
-
 	@Override
 	public boolean canSave() {
 		return !view.getStudentNameField().getText().isEmpty() && !view.getDescriptionArea().getText().isEmpty();
@@ -92,6 +88,10 @@ public class StudentViewPresenterImpl implements StudentViewPresenter {
 	@Override
 	public void setStudentDetailsOnHomePageView() {
 		homePagePresenter.updateStudentDetailsOnView();
+	}
+
+	private void setButtonStates(boolean isViewValid) {
+		view.getSaveAndCloseButton().setEnabled(isViewValid);
 	}
 
 }

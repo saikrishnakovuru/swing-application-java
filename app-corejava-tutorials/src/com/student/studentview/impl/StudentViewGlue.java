@@ -39,20 +39,6 @@ public class StudentViewGlue {
 			}
 		});
 
-//		view.getMaleRadioButton().addActionListener(new ActionListener() {
-//
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//			}
-//		});
-//
-//		view.getFemaleRadioButton().addActionListener(new ActionListener() {
-//
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//			}
-//		});
-
 		view.getFemaleRadioButton().addActionListener(new CustomizedActionListener());
 		view.getMaleRadioButton().addActionListener(new CustomizedActionListener());
 		view.getStudentNameField().getDocument().addDocumentListener(new CustomizedDocumentListener());
