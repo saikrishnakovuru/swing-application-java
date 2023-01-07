@@ -32,7 +32,7 @@ public class SwingStudentHomePageViewImpl implements SwingStudentHomePageView {
 
 	private void creteView() {
 		frame.add(buildView());
-		frame.setSize(450, 151);
+		frame.setSize(450, 150);
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null);
 	}
