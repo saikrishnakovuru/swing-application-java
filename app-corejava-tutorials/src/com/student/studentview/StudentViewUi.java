@@ -26,9 +26,5 @@ public interface StudentViewUi {
 	JRadioButton getMaleRadioButton();
 
 	JRadioButton getFemaleRadioButton();
-	
-	ButtonGroup getButtonGroup();
-	
-	void setButtonGroup(ButtonGroup buttonGroup);
 
 }

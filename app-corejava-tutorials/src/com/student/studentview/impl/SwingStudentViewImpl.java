@@ -39,9 +39,9 @@ public class SwingStudentViewImpl implements StudentViewUi {
 		studentNameField.setName("studentName field");
 		male = new JRadioButton("Male");
 		female = new JRadioButton("Female");
-		setButtonGroup(new ButtonGroup());
-		getButtonGroup().add(female);
-		getButtonGroup().add(male);
+		buttonGroup = new ButtonGroup();
+		buttonGroup.add(female);
+		buttonGroup.add(male);
 		saveAndCloseButton = new JButton("saveAndClose");
 		cancel = new JButton("cancel");
 		comboBox = new JComboBox<String>();
@@ -153,17 +153,5 @@ public class SwingStudentViewImpl implements StudentViewUi {
 	@Override
 	public JRadioButton getFemaleRadioButton() {
 		return female;
-	}
-
-	public void man() {
-
-	}
-
-	public ButtonGroup getButtonGroup() {
-		return buttonGroup;
-	}
-
-	public void setButtonGroup(ButtonGroup buttonGroup) {
-		this.buttonGroup = buttonGroup;
 	}
 }
