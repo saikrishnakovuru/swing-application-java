@@ -1,5 +1,6 @@
 package com.student.studentview;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -25,5 +26,9 @@ public interface StudentViewUi {
 	JRadioButton getMaleRadioButton();
 
 	JRadioButton getFemaleRadioButton();
+	
+	ButtonGroup getButtonGroup();
+	
+	void setButtonGroup(ButtonGroup buttonGroup);
 
 }

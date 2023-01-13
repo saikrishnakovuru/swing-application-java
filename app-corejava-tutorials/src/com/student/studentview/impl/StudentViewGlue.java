@@ -50,17 +50,21 @@ public class StudentViewGlue {
 
 		@Override
 		public void changedUpdate(DocumentEvent arg0) {
+//			presenter.updateToolTipsToSaveAndCloseButton();
 			presenter.setInvalidCOlorsToTextFieldsWichAreMandatory();
+
 		}
 
 		@Override
 		public void insertUpdate(DocumentEvent arg0) {
+//			presenter.updateToolTipsToSaveAndCloseButton();
 			presenter.setInvalidCOlorsToTextFieldsWichAreMandatory();
 
 		}
 
 		@Override
 		public void removeUpdate(DocumentEvent arg0) {
+//			presenter.updateToolTipsToSaveAndCloseButton();
 			presenter.setInvalidCOlorsToTextFieldsWichAreMandatory();
 		}
 

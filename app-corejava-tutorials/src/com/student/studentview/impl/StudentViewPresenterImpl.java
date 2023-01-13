@@ -2,8 +2,10 @@ package com.student.studentview.impl;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.util.ArrayList;
+import java.util.List;
 
-import javax.swing.border.LineBorder;
+import javax.swing.JComponent;
 import javax.swing.text.JTextComponent;
 
 import org.jdesktop.swingx.prompt.PromptSupport;
@@ -18,6 +20,8 @@ public class StudentViewPresenterImpl implements StudentViewPresenter {
 	private StudentViewUi view;
 	private StudentHomePagePresenter homePagePresenter;
 	private StudentViewModel model;
+	private List<Component> listOfMandatoryConponents;
+	public static String newline = System.getProperty("line.separator");
 
 	public StudentViewPresenterImpl(StudentViewUi view, StudentHomePagePresenter homePagePresenter,
 			StudentViewModel model) {
@@ -25,29 +29,36 @@ public class StudentViewPresenterImpl implements StudentViewPresenter {
 		this.view = view;
 		this.homePagePresenter = homePagePresenter;
 		this.model = model;
+		listOfMandatoryConponents = new ArrayList<Component>();
 
 		setFramesTitle();
 		setHintTextsToFields();
-		setToolTipsToFields();
-		addMandatoryFields(view.getStudentNameField(), view.getDescriptionArea());
+		addMandatoryFields(view.getStudentNameField(), view.getDescriptionArea(), view.getMaleRadioButton(),
+				view.getFemaleRadioButton());
 	}
 
 	private void setHintTextsToFields() {
 		PromptSupport.setPrompt("please enter the name", view.getStudentNameField());
-		PromptSupport.setForeground(new Color(160, 160, 160), view.getStudentNameField());
-
 		PromptSupport.setPrompt("Describe yourselves here", view.getDescriptionArea());
-		PromptSupport.setForeground(new Color(160, 160, 160), view.getDescriptionArea());
-
 	}
 
-	private void setToolTipsToFields() {
-//		view.getStudentNameField().setToolTipText("Enter your name");
+	private void updateToolTipsToSaveAndCloseButton() {
 
-		view.getSaveAndCloseButton().setToolTipText("Save and close");
+		StringBuilder sb = new StringBuilder("<html>");
+		sb.append("please fill " + "<br>");
+		for (Component c : listOfMandatoryConponents) {
+			if (c instanceof JTextComponent) {
+				JTextComponent com = (JTextComponent) c;
+				if (com.getText().isEmpty())
+					sb.append(com.getName() + "<br>");
+			}
+		}
 
-//		view.getDescriptionArea().setToolTipText("Describe Yourself");
-		view.getDescriptionArea().setBorder(new LineBorder(Color.GRAY));
+		if (!view.getSaveAndCloseButton().isEnabled())
+			view.getSaveAndCloseButton().setToolTipText(sb.toString());
+		else
+			view.getSaveAndCloseButton().setToolTipText(null);
+
 	}
 
 	private void setFramesTitle() {
@@ -93,14 +104,19 @@ public class StudentViewPresenterImpl implements StudentViewPresenter {
 	}
 
 	private void setButtonStates(boolean isViewValid) {
+
+//		if (!isViewValid)
+		updateToolTipsToSaveAndCloseButton();
 		view.getSaveAndCloseButton().setEnabled(isViewValid);
 	}
 
-	private void addMandatoryFields(Component... components) {
-//		JTextComponent c = null;
+	private void addMandatoryFields(JComponent... components) {
 		for (Component com : components) {
-			JTextComponent c = (JTextComponent) com;
-			c.setBackground(new Color(255, 255, 224));
+			listOfMandatoryConponents.add(com);
+			if (com instanceof JTextComponent) {
+				JTextComponent c = (JTextComponent) com;
+				c.setBackground(new Color(255, 255, 224));
+			}
 			setButtonStates(canSave());
 		}
 

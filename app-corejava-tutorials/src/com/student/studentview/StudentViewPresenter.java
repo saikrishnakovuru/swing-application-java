@@ -11,5 +11,7 @@ public interface StudentViewPresenter {
 	void printSavedDetialsOnConsole();
 
 	void setStudentDetailsOnHomePageView();
+	
+//	void updateToolTipsToSaveAndCloseButton();
 
 }

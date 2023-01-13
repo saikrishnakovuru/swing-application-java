@@ -29,21 +29,24 @@ public class SwingStudentViewImpl implements StudentViewUi {
 	protected JButton cancel;
 	private JComboBox<String> comboBox;
 	private JTextArea descriptionArea;
+	private ButtonGroup buttonGroup;
 
 	public SwingStudentViewImpl() {
 
 		frame = new JFrame();
 		studentNameLabel = new JLabel("Please enter your name :");
 		studentNameField = new JTextField();
+		studentNameField.setName("studentName field");
 		male = new JRadioButton("Male");
 		female = new JRadioButton("Female");
-		ButtonGroup buttonGroup = new ButtonGroup();
-		buttonGroup.add(female);
-		buttonGroup.add(male);
+		setButtonGroup(new ButtonGroup());
+		getButtonGroup().add(female);
+		getButtonGroup().add(male);
 		saveAndCloseButton = new JButton("saveAndClose");
 		cancel = new JButton("cancel");
 		comboBox = new JComboBox<String>();
 		descriptionArea = new JTextArea();
+		descriptionArea.setName("Description ");
 		createView();
 	}
 
@@ -112,10 +115,6 @@ public class SwingStudentViewImpl implements StudentViewUi {
 		return builder.getPanel();
 	}
 
-	public void setMandatory(boolean val) {
-
-	}
-
 	@Override
 	public JButton getSaveAndCloseButton() {
 		return saveAndCloseButton;
@@ -158,5 +157,13 @@ public class SwingStudentViewImpl implements StudentViewUi {
 
 	public void man() {
 
+	}
+
+	public ButtonGroup getButtonGroup() {
+		return buttonGroup;
+	}
+
+	public void setButtonGroup(ButtonGroup buttonGroup) {
+		this.buttonGroup = buttonGroup;
 	}
 }
