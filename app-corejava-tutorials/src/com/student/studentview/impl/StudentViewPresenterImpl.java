@@ -21,7 +21,6 @@ public class StudentViewPresenterImpl implements StudentViewPresenter {
 	private StudentHomePagePresenter homePagePresenter;
 	private StudentViewModel model;
 	private List<Component> listOfMandatoryConponents;
-	public static String newline = System.getProperty("line.separator");
 
 	public StudentViewPresenterImpl(StudentViewUi view, StudentHomePagePresenter homePagePresenter,
 			StudentViewModel model) {
@@ -33,8 +32,7 @@ public class StudentViewPresenterImpl implements StudentViewPresenter {
 
 		setFramesTitle();
 		setHintTextsToFields();
-		addMandatoryFields(view.getStudentNameField(), view.getDescriptionArea(), view.getMaleRadioButton(),
-				view.getFemaleRadioButton());
+		addMandatoryFields(view.getStudentNameField(), view.getDescriptionArea());
 	}
 
 	private void setHintTextsToFields() {
@@ -104,8 +102,6 @@ public class StudentViewPresenterImpl implements StudentViewPresenter {
 	}
 
 	private void setButtonStates(boolean isViewValid) {
-
-//		if (!isViewValid)
 		updateToolTipsToSaveAndCloseButton();
 		view.getSaveAndCloseButton().setEnabled(isViewValid);
 	}

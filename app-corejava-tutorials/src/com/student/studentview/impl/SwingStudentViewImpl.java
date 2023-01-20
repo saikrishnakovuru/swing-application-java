@@ -16,16 +16,17 @@ import javax.swing.border.EmptyBorder;
 import com.jgoodies.forms.builder.DefaultFormBuilder;
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
+import com.student.helper.AbstractSwingView;
 import com.student.studentview.StudentViewUi;
 
-public class SwingStudentViewImpl implements StudentViewUi {
+public class SwingStudentViewImpl extends AbstractSwingView implements StudentViewUi {
 
 	protected JFrame frame;
 	private JLabel studentNameLabel;
 	private JTextField studentNameField;
 	private JRadioButton male;
 	private JRadioButton female;
-	public JButton saveAndCloseButton;
+	protected JButton saveAndCloseButton;
 	protected JButton cancel;
 	private JComboBox<String> comboBox;
 	private JTextArea descriptionArea;
@@ -42,7 +43,8 @@ public class SwingStudentViewImpl implements StudentViewUi {
 		buttonGroup = new ButtonGroup();
 		buttonGroup.add(female);
 		buttonGroup.add(male);
-		saveAndCloseButton = new JButton("saveAndClose");
+		saveAndCloseButton = new JButton();
+		saveAndCloseButton.setText("studentSaveAndClose");
 		cancel = new JButton("cancel");
 		comboBox = new JComboBox<String>();
 		descriptionArea = new JTextArea();
@@ -50,7 +52,8 @@ public class SwingStudentViewImpl implements StudentViewUi {
 		createView();
 	}
 
-	private void createView() {
+	@Override
+	protected void createView() {
 		frame.add(buildView());
 		frame.setSize(500, 300);
 		frame.setVisible(true);

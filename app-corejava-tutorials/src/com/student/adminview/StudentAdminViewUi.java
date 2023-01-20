@@ -8,5 +8,7 @@ public interface StudentAdminViewUi {
 	JFrame getFrame();
 
 	JButton getSaveAndCloseButton();
+	
+	JButton getCancelButton();
 
 }

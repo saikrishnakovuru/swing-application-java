@@ -1,4 +1,4 @@
-package com.student.helper.enumcolor;
+package com.student.helper;
 
 public enum ColorEnum {
 

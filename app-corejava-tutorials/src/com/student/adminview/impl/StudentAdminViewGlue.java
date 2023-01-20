@@ -25,5 +25,11 @@ public class StudentAdminViewGlue {
 
 			}
 		});
+
+		adminView.getCancelButton().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				adminView.getFrame().dispose();
+			}
+		});
 	}
 }

@@ -12,6 +12,12 @@ public class StudentAdminViewPresenterImpl implements StudentAdminViewPresenter 
 	public StudentAdminViewPresenterImpl(StudentHomePagePresenter homePagePresenter, StudentAdminViewUi adminViewUi) {
 		this.homePagePresenter = homePagePresenter;
 		this.adminView = adminViewUi;
+		setNames();
+	}
+
+	private void setNames() {
+//		adminView.getSaveAndCloseButton().setName("asdf");
+//		adminView.getFrame().setName("adminView");
 	}
 
 	@Override
