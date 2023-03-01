@@ -1,8 +1,5 @@
 package com.student.adminview.impl;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-
 import com.student.adminview.StudentAdminViewUi;
 import com.student.studentview.impl.SwingStudentViewImpl;
 
