@@ -21,7 +21,7 @@ import com.student.studentview.StudentViewUi;
 
 public class SwingStudentViewImpl extends AbstractSwingView implements StudentViewUi {
 
-	protected JFrame frame;
+//	protected JFrame frame;
 	private JLabel studentNameLabel;
 	private JTextField studentNameField;
 	private JRadioButton male;
@@ -33,8 +33,6 @@ public class SwingStudentViewImpl extends AbstractSwingView implements StudentVi
 	private ButtonGroup buttonGroup;
 
 	public SwingStudentViewImpl() {
-
-		frame = new JFrame();
 		studentNameLabel = new JLabel("Please enter your name :");
 		studentNameField = new JTextField();
 		studentNameField.setName("studentName field");
@@ -49,17 +47,10 @@ public class SwingStudentViewImpl extends AbstractSwingView implements StudentVi
 		comboBox = new JComboBox<String>();
 		descriptionArea = new JTextArea();
 		descriptionArea.setName("Description ");
-		createView();
+		frame.add(buildView());
 	}
 
 	@Override
-	protected void createView() {
-		frame.add(buildView());
-		frame.setSize(500, 300);
-		frame.setVisible(true);
-		frame.setLocationRelativeTo(null);
-	}
-
 	protected JComponent buildView() {
 		DefaultFormBuilder builder = new DefaultFormBuilder(
 				new FormLayout("f:1:g", "p,4dlu,p,4dlu,p,4dlu,f:1:g,4dlu,p"));
