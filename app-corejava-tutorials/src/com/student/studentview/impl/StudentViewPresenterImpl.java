@@ -40,21 +40,20 @@ public class StudentViewPresenterImpl implements StudentViewPresenter {
 		PromptSupport.setPrompt("Describe yourselves here", view.getDescriptionArea());
 	}
 
-	private void updateToolTipsToSaveAndCloseButton() {
+	private void updateToolTipsToSaveAndCloseButton(boolean isViewValid) {
 
-		StringBuilder sb = new StringBuilder("<html>");
-		sb.append("please fill " + "<br>");
-		for (Component c : listOfMandatoryConponents) {
-			if (c instanceof JTextComponent) {
-				JTextComponent com = (JTextComponent) c;
-				if (com.getText().isEmpty())
-					sb.append(com.getName() + "<br>");
+		if (!isViewValid) {
+			StringBuilder sb = new StringBuilder("<html>");
+			sb.append("please fill " + "<br>");
+			for (Component c : listOfMandatoryConponents) {
+				if (c instanceof JTextComponent) {
+					JTextComponent com = (JTextComponent) c;
+					if (com.getText().isEmpty())
+						sb.append(com.getName() + "<br>");
+				}
 			}
-		}
-
-		if (!view.getSaveAndCloseButton().isEnabled())
 			view.getSaveAndCloseButton().setToolTipText(sb.toString());
-		else
+		} else
 			view.getSaveAndCloseButton().setToolTipText(null);
 
 	}
@@ -102,8 +101,9 @@ public class StudentViewPresenterImpl implements StudentViewPresenter {
 	}
 
 	private void setButtonStates(boolean isViewValid) {
-		updateToolTipsToSaveAndCloseButton();
+
 		view.getSaveAndCloseButton().setEnabled(isViewValid);
+		updateToolTipsToSaveAndCloseButton(isViewValid);
 	}
 
 	private void addMandatoryFields(JComponent... components) {
