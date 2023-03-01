@@ -11,7 +11,6 @@ public class SwingStudentAdminViewUiImpl extends SwingStudentViewImpl implements
 		frame.setTitle("Admin view");
 	}
 
-	
 //	protected JComponent buildView() {
 //		DefaultFormBuilder builder = new DefaultFormBuilder(
 //				new FormLayout("f:1:g", "p,4dlu,p,4dlu,p,4dlu,f:1:g,4dlu,p"));
