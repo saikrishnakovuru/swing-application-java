@@ -5,7 +5,6 @@ import java.awt.Component;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
@@ -21,13 +20,11 @@ public class SwingStudentHomePageViewImpl extends AbstractSwingView implements S
 	private JButton adminView;
 	private JLabel label;
 	private JTextArea textArea;
-	private JList<String> list;
 
 	public SwingStudentHomePageViewImpl() {
 		studentView = new JButton();
 		adminView = new JButton();
 		textArea = new JTextArea();
-		list = new JList<String>();
 		label = new JLabel("Kindly click any of the below buttons to enter into their respective modes");
 		frame.setContentPane(buildView());
 	}
@@ -69,10 +66,5 @@ public class SwingStudentHomePageViewImpl extends AbstractSwingView implements S
 	@Override
 	public JTextArea getTextArea() {
 		return textArea;
-	}
-
-	@Override
-	public JList<String> getJlist() {
-		return list;
 	}
 }

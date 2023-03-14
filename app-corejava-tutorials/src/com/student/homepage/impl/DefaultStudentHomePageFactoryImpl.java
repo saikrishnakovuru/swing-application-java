@@ -3,7 +3,6 @@ package com.student.homepage.impl;
 import com.student.adminview.StudentAdminViewFactory;
 import com.student.adminview.impl.StudentAdminViewFactoryImpl;
 import com.student.homepage.StudentHomePageFactory;
-import com.student.homepage.StudentHomePageModel;
 import com.student.homepage.StudentHomePagePresenter;
 import com.student.homepage.SwingStudentHomePageView;
 import com.student.studentview.StudentViewFactory;
@@ -16,7 +15,7 @@ public class DefaultStudentHomePageFactoryImpl implements StudentHomePageFactory
 		StudentViewFactory studentViewFactory = new DefaultStudentViewFactoryImpl();
 		StudentAdminViewFactory adminViewFacory = new StudentAdminViewFactoryImpl();
 		SwingStudentHomePageView view = new SwingStudentHomePageViewImpl();
-		StudentHomePageModel model = new StudentHomePageModelImpl();
+		new StudentHomePageModelImpl();
 		StudentHomePagePresenter presenter = new StudentHomePagePresenterImpl(view);
 		new StudentHomePageGlue(view, studentViewFactory, presenter, adminViewFacory, student);
 	}
