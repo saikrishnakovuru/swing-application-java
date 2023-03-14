@@ -8,6 +8,7 @@ import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -47,11 +48,11 @@ public class SwingStudentViewImpl extends AbstractSwingView implements StudentVi
 		comboBox = new JComboBox<String>();
 		descriptionArea = new JTextArea();
 		descriptionArea.setName("Description ");
-		frame.add(buildView());
+		frame.setContentPane(buildView());
 	}
 
 	@Override
-	protected JComponent buildView() {
+	protected JPanel buildView() {
 		DefaultFormBuilder builder = new DefaultFormBuilder(
 				new FormLayout("f:1:g", "p,4dlu,p,4dlu,p,4dlu,f:1:g,4dlu,p"));
 		CellConstraints cc = new CellConstraints();

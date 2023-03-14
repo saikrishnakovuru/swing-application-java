@@ -34,6 +34,11 @@ public class StudentHomePageGlue {
 			}
 		});
 
+		view.getAdminViewButton().addActionListener(e -> {
+			view.getAdminViewButton().setEnabled(false);
+			adminViewFactory.createView(studenetHomePagePresenter);
+		});
+
 		view.getStudentViewButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				view.getStudentViewButton().setEnabled(false);

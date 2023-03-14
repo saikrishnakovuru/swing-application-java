@@ -3,6 +3,8 @@ package com.student.homepage.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JList;
+
 import com.student.homepage.StudentHomePagePresenter;
 import com.student.homepage.SwingStudentHomePageView;
 
@@ -12,10 +14,12 @@ public class StudentHomePagePresenterImpl implements StudentHomePagePresenter {
 	private Student student;
 	private List<Student> studentList;
 	private String data;
+	private JList<String> list;
 
 	public StudentHomePagePresenterImpl(SwingStudentHomePageView view) {
 		this.view = view;
 		studentList = new ArrayList<Student>();
+		list  = new JList<>();
 		data = new String();
 		setHomePageTitle();
 	}
@@ -40,8 +44,8 @@ public class StudentHomePagePresenterImpl implements StudentHomePagePresenter {
 	@Override
 	public void updateStudentDetailsOnView() {
 		studentList.add(student);
-//		view.getTextArea().setText("");
 		view.getTextArea().setText(details());
+//		view.getTextArea().setText(student.toString());
 
 	}
 
