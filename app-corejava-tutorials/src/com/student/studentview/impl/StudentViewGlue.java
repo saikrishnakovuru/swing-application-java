@@ -6,10 +6,11 @@ import java.awt.event.ActionListener;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
+import com.student.helper.AbstractGlue;
 import com.student.studentview.StudentViewPresenter;
 import com.student.studentview.StudentViewUi;
 
-public class StudentViewGlue {
+public class StudentViewGlue extends AbstractGlue {
 
 	private StudentViewUi view;
 	private StudentViewPresenter presenter;
@@ -20,7 +21,8 @@ public class StudentViewGlue {
 		actions();
 	}
 
-	private void actions() {
+	@Override
+	protected void actions() {
 
 		view.getSaveAndCloseButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
