@@ -10,6 +10,7 @@ import javax.swing.text.JTextComponent;
 
 import org.jdesktop.swingx.prompt.PromptSupport;
 
+import com.student.helper.ColorEnum;
 import com.student.homepage.StudentHomePagePresenter;
 import com.student.studentview.StudentViewModel;
 import com.student.studentview.StudentViewPresenter;
@@ -72,15 +73,23 @@ public class StudentViewPresenterImpl implements StudentViewPresenter {
 		boolean isStudentNameFieldEmpty = view.getStudentNameField().getText().isEmpty();
 		boolean isStudentDecriptionFieldEmpty = view.getDescriptionArea().getText().isEmpty();
 
-		if (isStudentNameFieldEmpty)
-			view.getStudentNameField().setBackground(new Color(255, 255, 224));
-		else
-			view.getStudentNameField().setBackground(new Color(255, 255, 255));
+		Color studentNameFieldColor = isStudentNameFieldEmpty ? ColorEnum.INVALID.getColor()
+				: ColorEnum.VALID.getColor();
+		Color descriptionAreaColor = isStudentDecriptionFieldEmpty ? ColorEnum.INVALID.getColor()
+				: ColorEnum.VALID.getColor();
 
-		if (isStudentDecriptionFieldEmpty)
-			view.getDescriptionArea().setBackground(new Color(255, 255, 224));
-		else
-			view.getDescriptionArea().setBackground(new Color(255, 255, 255));
+		view.getStudentNameField().setBackground(studentNameFieldColor);
+		view.getDescriptionArea().setBackground(descriptionAreaColor);
+
+//		if (isStudentNameFieldEmpty)
+//			view.getStudentNameField().setBackground(ColorEnum.INVALID.getColor());
+//		else
+//			view.getStudentNameField().setBackground(new Color(255, 255, 255));
+//
+//		if (isStudentDecriptionFieldEmpty)
+//			view.getDescriptionArea().setBackground(ColorEnum.INVALID.getColor());
+//		else
+//			view.getDescriptionArea().setBackground(ColorEnum.VALID.getColor());
 
 		setButtonStates(canSave());
 	}

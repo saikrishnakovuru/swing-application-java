@@ -1,22 +1,26 @@
 package com.student.helper;
 
+import java.awt.Color;
+
 public enum ColorEnum {
 
-	INVALID, VALID;
+	INVALID(Color.YELLOW), VALID(Color.WHITE);
 
-//	public ColorEnum isInvalid() {
-//		return INVALID;
-//	}
+	private final Color color;
 
-//	public ColorEnum isValid() {
-//		return VALID;
-//	}
-
-	public boolean isInvalid() {
-		return this == ColorEnum.INVALID;
+	ColorEnum(Color color) {
+		this.color = color;
 	}
 
-	public boolean isValid() {
-		return this == ColorEnum.VALID;
+//	public boolean isInvalid() {
+//		return this == ColorEnum.INVALID;
+//	}
+//
+//	public boolean isValid() {
+//		return this == ColorEnum.VALID;
+//	}
+
+	public Color getColor() {
+		return color;
 	}
 }
