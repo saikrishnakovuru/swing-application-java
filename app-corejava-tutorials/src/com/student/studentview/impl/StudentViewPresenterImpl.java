@@ -11,6 +11,7 @@ import javax.swing.text.JTextComponent;
 import org.jdesktop.swingx.prompt.PromptSupport;
 
 import com.student.helper.ColorEnum;
+import com.student.helper.ColorEnum;
 import com.student.homepage.StudentHomePagePresenter;
 import com.student.studentview.StudentViewModel;
 import com.student.studentview.StudentViewPresenter;
@@ -32,13 +33,15 @@ public class StudentViewPresenterImpl implements StudentViewPresenter {
 		listOfMandatoryConponents = new ArrayList<Component>();
 
 		setFramesTitle();
-		setHintTextsToFields();
+		setHintTextsAndInitialMandotoryColorsToFields();
 		addMandatoryFields(view.getStudentNameField(), view.getDescriptionArea());
 	}
 
-	private void setHintTextsToFields() {
+	private void setHintTextsAndInitialMandotoryColorsToFields() {
 		PromptSupport.setPrompt("please enter the name", view.getStudentNameField());
 		PromptSupport.setPrompt("Describe yourselves here", view.getDescriptionArea());
+		view.getDescriptionArea().setBackground(ColorEnum.INVALID.getColor());
+		view.getStudentNameField().setBackground(ColorEnum.INVALID.getColor());
 	}
 
 	private void updateToolTipsToSaveAndCloseButton(boolean isViewValid) {
@@ -73,23 +76,28 @@ public class StudentViewPresenterImpl implements StudentViewPresenter {
 		boolean isStudentNameFieldEmpty = view.getStudentNameField().getText().isEmpty();
 		boolean isStudentDecriptionFieldEmpty = view.getDescriptionArea().getText().isEmpty();
 
-		Color studentNameFieldColor = isStudentNameFieldEmpty ? ColorEnum.INVALID.getColor()
-				: ColorEnum.VALID.getColor();
 		Color descriptionAreaColor = isStudentDecriptionFieldEmpty ? ColorEnum.INVALID.getColor()
 				: ColorEnum.VALID.getColor();
+		Color studentNameFieldColor = isStudentNameFieldEmpty ? ColorEnum.INVALID.getColor()
+				: ColorEnum.VALID.getColor();
 
-		view.getStudentNameField().setBackground(studentNameFieldColor);
+//		Color studentNameFieldColor = isStudentNameFieldEmpty ? new Color(255, 255, 254) : new Color(255, 255, 254);
+//		Color descriptionAreaColor = isStudentDecriptionFieldEmpty ? new Color(255, 255, 255)
+//				: new Color(255, 255, 255);
+//
+
 		view.getDescriptionArea().setBackground(descriptionAreaColor);
+		view.getStudentNameField().setBackground(studentNameFieldColor);
 
 //		if (isStudentNameFieldEmpty)
-//			view.getStudentNameField().setBackground(ColorEnum.INVALID.getColor());
+//			view.getStudentNameField().setBackground(new Color(255, 255, 224));
 //		else
 //			view.getStudentNameField().setBackground(new Color(255, 255, 255));
 //
 //		if (isStudentDecriptionFieldEmpty)
-//			view.getDescriptionArea().setBackground(ColorEnum.INVALID.getColor());
+//			view.getDescriptionArea().setBackground(new Color(255, 255, 224));
 //		else
-//			view.getDescriptionArea().setBackground(ColorEnum.VALID.getColor());
+//			view.getDescriptionArea().setBackground(new Color(255, 255, 255));
 
 		setButtonStates(canSave());
 	}

@@ -4,7 +4,7 @@ import java.awt.Color;
 
 public enum ColorEnum {
 
-	INVALID(Color.YELLOW), VALID(Color.WHITE);
+	INVALID(Color.blue), VALID(new Color(255, 255, 255));
 
 	private final Color color;
 
