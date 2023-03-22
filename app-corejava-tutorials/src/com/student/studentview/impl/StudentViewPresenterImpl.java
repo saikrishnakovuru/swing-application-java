@@ -11,7 +11,6 @@ import javax.swing.text.JTextComponent;
 import org.jdesktop.swingx.prompt.PromptSupport;
 
 import com.student.helper.ColorEnum;
-import com.student.helper.ColorEnum;
 import com.student.homepage.StudentHomePagePresenter;
 import com.student.studentview.StudentViewModel;
 import com.student.studentview.StudentViewPresenter;
