@@ -46,17 +46,17 @@ public class SwingStudentViewImpl extends AbstractSwingView implements StudentVi
 		comboBox = new JComboBox<String>();
 		descriptionArea = new JTextArea();
 		descriptionArea.setName("Description");
-//		frame.setTitle("Student View");
+		// frame.setTitle("Student View");
 		frame.setContentPane(buildView());
 	}
 
 	@Override
-	public String setFrameTitle() {
+	protected String setFrameTitle() {
 		return "student View";
 	}
 
 	@Override
-	protected JPanel buildView() {
+	public JPanel buildView() {
 		DefaultFormBuilder builder = new DefaultFormBuilder(
 				new FormLayout("f:1:g", "p,4dlu,p,4dlu,p,4dlu,f:1:g,4dlu,p"));
 		CellConstraints cc = new CellConstraints();

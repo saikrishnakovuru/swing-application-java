@@ -12,18 +12,17 @@ public abstract class AbstractSwingView {
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null);
 		frame.setTitle(setFrameTitle());
-//		frame.setContentPane(buildView());
+		// frame.setContentPane(buildView());
 	}
 
 	protected abstract JPanel buildView();
 
-	public String setFrameTitle() {
-		return "";
-	}
-//		frame.setTitle(title);
+	protected abstract String setFrameTitle();
 
-//	protected JPanel buildView() {
-//		return null;
-//	}
+	// frame.setTitle(title);
+
+	// protected JPanel buildView() {
+	// return null;
+	// }
 
 }

@@ -30,12 +30,12 @@ public class SwingStudentHomePageViewImpl extends AbstractSwingView implements S
 	}
 
 	@Override
-	public String setFrameTitle() {
+	protected String setFrameTitle() {
 		return "Student's Home page";
 	}
 
 	@Override
-	public JPanel buildView() {
+	protected JPanel buildView() {
 		DefaultFormBuilder builder = new DefaultFormBuilder(new FormLayout("f:1:g", "p,4dlu,f:1:g,8dlu,p"));
 		CellConstraints cc = new CellConstraints();
 		builder.add(label, cc.xy(1, 1));
