@@ -49,4 +49,10 @@ public class Student {
 		this.description = description;
 	}
 
+	@Override
+	public String toString() {
+		return "Student [name=" + name + ", gender=" + gender + ", department=" + department + ", description="
+				+ description + "]";
+	}
+
 }

@@ -39,8 +39,9 @@ public class StudentHomePagePresenterImpl implements StudentHomePagePresenter {
 	@Override
 	public void updateStudentDetailsOnView() {
 		studentList.add(student);
-		view.getTextArea().setText(details());
-//		view.getTextArea().setText(student.toString());
+		// view.getTextArea().setText(details());
+		view.getTextArea().setText(studentList.toString());
+		// view.getTextArea().setText(student.toString());
 
 	}
 
@@ -51,11 +52,11 @@ public class StudentHomePagePresenterImpl implements StudentHomePagePresenter {
 
 	private String details() {
 
-//		for (Student stu : studentList) {
-//			view.getTextArea().setText("");
+		// for (Student stu : studentList) {
+		// view.getTextArea().setText("");
 		return data += "My name is " + student.getName() + ", " + student.getGender() + ", I chose "
 				+ student.getDepartment() + "  department and to describe myself  " + student.getDescription() + "\n";
-//		}
-//		return data;
+		// }
+		// return data;
 	}
 }
