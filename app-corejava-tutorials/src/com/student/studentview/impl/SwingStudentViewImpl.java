@@ -21,7 +21,6 @@ import com.student.studentview.StudentViewUi;
 
 public class SwingStudentViewImpl extends AbstractSwingView implements StudentViewUi {
 
-//	protected JFrame frame;
 	private JLabel studentNameLabel;
 	private JTextField studentNameField;
 	private JRadioButton male;
@@ -46,8 +45,14 @@ public class SwingStudentViewImpl extends AbstractSwingView implements StudentVi
 		cancel = new JButton("cancel");
 		comboBox = new JComboBox<String>();
 		descriptionArea = new JTextArea();
-		descriptionArea.setName("Description ");
+		descriptionArea.setName("Description");
+//		frame.setTitle("Student View");
 		frame.setContentPane(buildView());
+	}
+
+	@Override
+	public String setFrameTitle() {
+		return "student View";
 	}
 
 	@Override
@@ -94,7 +99,7 @@ public class SwingStudentViewImpl extends AbstractSwingView implements StudentVi
 		return builder.getPanel();
 	}
 
-	protected Component createSaveCloseAndCancelButtons() {
+	private Component createSaveCloseAndCancelButtons() {
 		DefaultFormBuilder builder = new DefaultFormBuilder(new FormLayout("p,2dlu,p", "p"));
 		CellConstraints cc = new CellConstraints();
 		builder.add(saveAndCloseButton, cc.xy(1, 1));

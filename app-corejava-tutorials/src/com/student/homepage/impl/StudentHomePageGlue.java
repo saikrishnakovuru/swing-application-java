@@ -48,5 +48,4 @@ public class StudentHomePageGlue extends AbstractGlue {
 			}
 		});
 	}
-
 }

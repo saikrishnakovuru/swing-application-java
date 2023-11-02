@@ -4,6 +4,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="lib" path="/Users/kovurusaikrishna/Documents/SwingJars/jgoodies-common-1.1.1.jar"/>
 	<classpathentry kind="lib" path="/Users/kovurusaikrishna/Documents/SwingJars/jgoodies-forms-1.5.1.jar"/>
-	<classpathentry kind="lib" path="/Users/kovurusaikrishna/Documents/SwingJars/swingx-1.6.1.jar"/>
+	<classpathentry kind="lib" path="/Users/kovurusaikrishna/Documents/SwingJars/swingx-1.6.1.jar" sourcepath="/var/folders/z8/kdc0mr9521q9dyfpbp23rd0r0000gn/T/.org.sf.feeling.decompiler1689621573827/source/swingx-1.6.1-sources.jar"/>
 	<classpathentry kind="output" path="app-corejava-tutorials/app-corejava-tutorials/bin"/>
 </classpath>

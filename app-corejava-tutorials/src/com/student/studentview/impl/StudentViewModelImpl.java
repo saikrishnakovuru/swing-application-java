@@ -1,5 +1,7 @@
 package com.student.studentview.impl;
 
+import java.util.Arrays;
+
 import com.student.homepage.StudentHomePagePresenter;
 import com.student.homepage.impl.Student;
 import com.student.studentview.StudentViewModel;
@@ -18,10 +20,11 @@ public class StudentViewModelImpl implements StudentViewModel {
 
 	private void setValuesToComboBox() {
 		String[] items = { "Electronics", "Electrical", "Computers", "Information Technology" };
-		for (String values : items) {
-			view.getComboBox().addItem(values);
-		}
+//		for (String values : items) {
+//			view.getComboBox().addItem(values);
+//		}
 
+		Arrays.stream(items).forEach(item -> view.getComboBox().addItem(item));
 	}
 
 	@Override

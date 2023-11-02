@@ -8,7 +8,7 @@ public class SwingStudentAdminViewUiImpl extends SwingStudentViewImpl implements
 	public SwingStudentAdminViewUiImpl() {
 //		frame = new JFrame();
 		saveAndCloseButton.setText("AdminSaveAndClose");
-		frame.setTitle("Admin view");
+		frame.setTitle("Admin");
 	}
 
 //	protected JComponent buildView() {

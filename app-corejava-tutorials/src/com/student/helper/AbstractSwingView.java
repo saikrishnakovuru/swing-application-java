@@ -4,19 +4,26 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public abstract class AbstractSwingView {
-	protected JFrame frame = new JFrame();
+	protected JFrame frame;
 
-	protected AbstractSwingView() {
+	public AbstractSwingView() {
+		frame = new JFrame();
 		frame.setSize(500, 300);
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null);
-//			frame.setContentPane(buildView());
+		frame.setTitle(setFrameTitle());
+//		frame.setContentPane(buildView());
 	}
 
-//	protected abstract JComponent buildView();
+	protected abstract JPanel buildView();
 
-	protected JPanel buildView() {
-		return null;
+	public String setFrameTitle() {
+		return "";
 	}
+//		frame.setTitle(title);
+
+//	protected JPanel buildView() {
+//		return null;
+//	}
 
 }

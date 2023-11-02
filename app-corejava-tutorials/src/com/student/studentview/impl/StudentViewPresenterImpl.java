@@ -1,6 +1,5 @@
 package com.student.studentview.impl;
 
-import java.awt.Color;
 import java.awt.Component;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +30,6 @@ public class StudentViewPresenterImpl implements StudentViewPresenter {
 		this.model = model;
 		listOfMandatoryConponents = new ArrayList<Component>();
 
-		setFramesTitle();
 		setHintTextsAndInitialMandotoryColorsToFields();
 		addMandatoryFields(view.getStudentNameField(), view.getDescriptionArea());
 	}
@@ -61,10 +59,6 @@ public class StudentViewPresenterImpl implements StudentViewPresenter {
 
 	}
 
-	private void setFramesTitle() {
-		view.getFrame().setTitle("Student View");
-	}
-
 	@Override
 	public void enablingStudentViewButtonInHomePageView() {
 		homePagePresenter.isStudentViewOpen(!view.getFrame().isShowing());
@@ -72,21 +66,20 @@ public class StudentViewPresenterImpl implements StudentViewPresenter {
 
 	@Override
 	public void setInvalidCOlorsToTextFieldsWichAreMandatory() {
-		boolean isStudentNameFieldEmpty = view.getStudentNameField().getText().isEmpty();
-		boolean isStudentDecriptionFieldEmpty = view.getDescriptionArea().getText().isEmpty();
-
-		Color descriptionAreaColor = isStudentDecriptionFieldEmpty ? ColorEnum.INVALID.getColor()
-				: ColorEnum.VALID.getColor();
-		Color studentNameFieldColor = isStudentNameFieldEmpty ? ColorEnum.INVALID.getColor()
-				: ColorEnum.VALID.getColor();
-
-//		Color studentNameFieldColor = isStudentNameFieldEmpty ? new Color(255, 255, 254) : new Color(255, 255, 254);
-//		Color descriptionAreaColor = isStudentDecriptionFieldEmpty ? new Color(255, 255, 255)
-//				: new Color(255, 255, 255);
+//		boolean isStudentNameFieldEmpty = view.getStudentNameField().getText().isEmpty();
+//		boolean isStudentDecriptionFieldEmpty = view.getDescriptionArea().getText().isEmpty();
 //
+//		Color descriptionAreaColor = isStudentDecriptionFieldEmpty ? ColorEnum.INVALID.getColor()
+//				: ColorEnum.VALID.getColor();
+//		Color studentNameFieldColor = isStudentNameFieldEmpty ? ColorEnum.INVALID.getColor()
+//				: ColorEnum.VALID.getColor();
 
-		view.getDescriptionArea().setBackground(descriptionAreaColor);
-		view.getStudentNameField().setBackground(studentNameFieldColor);
+		view.getDescriptionArea()
+				.setBackground(view.getDescriptionArea().getText().isEmpty() ? ColorEnum.INVALID.getColor()
+						: ColorEnum.VALID.getColor());
+		view.getStudentNameField()
+				.setBackground(view.getStudentNameField().getText().isEmpty() ? ColorEnum.INVALID.getColor()
+						: ColorEnum.VALID.getColor());
 
 //		if (isStudentNameFieldEmpty)
 //			view.getStudentNameField().setBackground(new Color(255, 255, 224));
@@ -127,7 +120,7 @@ public class StudentViewPresenterImpl implements StudentViewPresenter {
 			listOfMandatoryConponents.add(com);
 			if (com instanceof JTextComponent) {
 				JTextComponent c = (JTextComponent) com;
-				c.setBackground(new Color(255, 255, 224));
+				c.setBackground(ColorEnum.INVALID.getColor());
 			}
 			setButtonStates(canSave());
 		}

@@ -22,8 +22,7 @@ public class StudentViewGlue extends AbstractGlue {
 	}
 
 	@Override
-	protected void actions() {
-
+	public void actions() {
 		view.getSaveAndCloseButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				view.getFrame().dispose();
@@ -45,10 +44,9 @@ public class StudentViewGlue extends AbstractGlue {
 		view.getMaleRadioButton().addActionListener(new CustomizedActionListener());
 		view.getStudentNameField().getDocument().addDocumentListener(new CustomizedDocumentListener());
 		view.getDescriptionArea().getDocument().addDocumentListener(new CustomizedDocumentListener());
-
 	}
 
-	public class CustomizedDocumentListener implements DocumentListener {
+	private class CustomizedDocumentListener implements DocumentListener {
 
 		@Override
 		public void changedUpdate(DocumentEvent arg0) {
@@ -69,7 +67,7 @@ public class StudentViewGlue extends AbstractGlue {
 
 	}
 
-	public class CustomizedActionListener implements ActionListener {
+	private class CustomizedActionListener implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
