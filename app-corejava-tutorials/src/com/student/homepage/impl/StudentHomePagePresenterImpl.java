@@ -21,7 +21,6 @@ public class StudentHomePagePresenterImpl implements StudentHomePagePresenter {
 	}
 
 	private void setHomePageTitle() {
-		view.getFrame().setTitle("Home Page");
 		view.getStudentViewButton().setText("Student View");
 		view.getAdminViewButton().setText("Admin View");
 		view.getTextArea().setEditable(false);

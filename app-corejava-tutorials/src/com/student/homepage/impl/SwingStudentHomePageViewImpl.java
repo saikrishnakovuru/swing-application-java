@@ -28,7 +28,11 @@ public class SwingStudentHomePageViewImpl extends AbstractSwingView implements S
 		label = new JLabel("Kindly click any of the below buttons to enter into their respective modes");
 		frame.setContentPane(buildView());
 	}
-
+	
+	@Override
+	public String setFrameTitle() {
+		return "Student's Home page";
+	}
 	@Override
 	public JPanel buildView() {
 		DefaultFormBuilder builder = new DefaultFormBuilder(new FormLayout("f:1:g", "p,4dlu,f:1:g,8dlu,p"));
@@ -39,6 +43,7 @@ public class SwingStudentHomePageViewImpl extends AbstractSwingView implements S
 		builder.setBorder(new EmptyBorder(4, 10, 4, 12));
 		return builder.getPanel();
 	}
+
 
 	private Component createButtons() {
 		DefaultFormBuilder builder = new DefaultFormBuilder(new FormLayout("p,4dlu,p", "p"));
